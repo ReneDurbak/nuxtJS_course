@@ -1,0 +1,85 @@
+co je nuxt
+nuxt je framework
+
+co je framework
+nadstavba (kniznica?) v js
+
+framework nuxt pomaha vytvarat webovu aplikaciu -> vytvaranie frontend
+
+nuxt framework postaveny na vue > vue postavene na js
+
+3 hlavne prikazy v nuxt-e
+npx nuxi init <project-name>
+npm install
+npm run dev
+
+subor *.vue (napr. app.vue)
+3 zakladne casti:
+<template> - html
+<script> - js
+<style> - nejaky stylesheet napr. css, scss
+
+<tempalte>
+vyjadrena logicka struktura stranky
+predstavuje html
+zakladne tagy - ako v html
+<tag class=" ">
+	..........
+</tag>
+
+ako dynamicky ovplivnovat class pomocou scriptu
+skratena verzia
+	<tag :class=" ">
+		..........
+	</tag>
+	medzi "" je retezec/string
+dlhsia verzia
+	<tag v-bind:class=" ">	
+		..........
+	</tag>
+	medzi "" je javascript code
+
+dynamicke pridelovanie hodnoty atributu
+v.bin:class=" "
+class="[js-code]"
+
+dynamicke ovplyvnovanie kontentu
+{{js kod}} - mustage sablona
+
+click vyjadrenie
+@click
+v-on:click
+
+nuxt html atributy
+v-if="bool"	(ak sa vyhodnoti flase nezobrazia sa)
+v-else-if="bool"
+v-else
+v-show="bool"	(ovplyvnovanie css stlylu "visibility = hidden")
+v-for="js kod interacie(item of array();item in arrray)"	//k polu v:key(aby stranka nemusela renderovat cele pole ale key je jedinecne pre kazdu 
+								jednu polozku v poli preto ak sa zmeni jedna polozky podla key zmeni tu jednu danu polozku
+
+premenne 2 typy 
+state
+-premenna obsahujucu funkciu ref(inicializacna_hodnota) -aj pre primitivne typy(bool, int, string, ...) ale aj pre objekt; reactive() -moze byt len objekt - ich zmeni v ramci html
+<template>
+{{state.name}} - ref vyrenderuje
+{{state.age}} - ref vyrenderuje
+
+objekt{
+	name:"asmo",
+	age:24,
+}
+
+reactive vyrenderuje len urcitu zmenu v <template>
+ref vyrenderuje znovu vsetky atributy obejktu v <template>
+
+komponenty
+nami definovyny tag, pristup ako pri tagu
+uzavreta cast ktora ma jednu velmi dolezitu cast => vytvaranie komponentu len ak ma viacnasobne vyuzitie
+komponent *.vue
+vlastne atributy komponentu; zapisuje sa v casti <script> defineProps(['person'] -> odovzdavame pole nazvou atributou string)
+
+properties - vyuzivanie v ramci js pri objektu
+atribute - v html pri tagoch
+
+v <template> - odovzdavame ten komponent (zapisujeme) ako normalny tag => <personalCard v-bind:person="{}">
